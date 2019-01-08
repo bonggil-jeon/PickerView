@@ -196,6 +196,18 @@ open class PickerView: UIView {
         }
     }
     
+    open var separatorStyle: UITableViewCell.SeparatorStyle = .none {
+        didSet {
+            self.tableView.separatorStyle = self.separatorStyle
+        }
+    }
+    
+    open var separatorColor: UIColor = .clear {
+        didSet {
+            self.tableView.separatorColor = self.separatorColor
+        }
+    }
+    
     // MARK: Initialization
     
     required public init?(coder aDecoder: NSCoder) {
@@ -235,8 +247,8 @@ open class PickerView: UIView {
         tableView.estimatedSectionFooterHeight = 0
         tableView.estimatedSectionHeaderHeight = 0
         tableView.backgroundColor = .clear
-        tableView.separatorStyle = .none
-        tableView.separatorColor = .none
+        tableView.separatorStyle = self.separatorStyle
+        tableView.separatorColor = self.separatorColor
         tableView.allowsSelection = true
         tableView.allowsMultipleSelection = false
         tableView.showsVerticalScrollIndicator = false
